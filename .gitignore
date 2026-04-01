@@ -1,0 +1,9 @@
+ic_fast
+ic_omp
+ic_metal
+ic.prg
+ic-tmp.prg
+*.o
+__pycache__/
+*.pyc
+.DS_Store
