@@ -87,4 +87,4 @@ Decrypts to: WETTERVORHERSAGEBISKAYAHEUTEREGENMITWINDSTAERKEFUENFAUSOSTEN
 
 ## License
 
-Public domain. Do what you want with it.
+GPL-3.0. See [LICENSE](LICENSE).
