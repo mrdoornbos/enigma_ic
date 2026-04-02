@@ -10,9 +10,12 @@ Related article: https://imapenguin.com/2026/04/breaking-enigma-with-index-of-co
 
 `ic-tmp.asm` - Turbo Macro Pro / TMPx syntax. Assembles at `$c000`, runs with `sys 49152`. Searches all 336 rotor orderings and 17,576 positions each. Threshold 194 (IC >= 0.055). Prints candidates to screen. Takes about 82 hours on a stock NTSC C64.
 
+`ic-tmp-fast.asm` - Optimized version with `mod26` inlined in the `rotorpass` routine. Eliminates two `jsr`/`rts` pairs per rotor pass, saving ~50 billion cycles across the full search. Takes about 67 hours. Same results, 18% faster, 6 bytes larger.
+
 Assemble with TMPx:
 ```
 tmpx ic-tmp.asm -o ic.prg
+tmpx ic-tmp-fast.asm -o ic-fast.prg
 ```
 
 Run in VICE:
@@ -67,6 +70,7 @@ python3 top10.py
 | Version | Time | Speedup vs C64 |
 |---------|------|----------------|
 | C64 (6502 asm, 1 MHz) | 82 hours | 1x |
+| C64 (inlined mod26) | 67 hours | 1.22x |
 | C, single-threaded (-O3) | ~1.9s | 159,000x |
 | C, OpenMP (all cores) | ~0.4s | 722,000x |
 | Metal GPU (Apple M4) | ~0.04s | 7,569,000x |

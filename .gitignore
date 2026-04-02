@@ -2,6 +2,7 @@ ic_fast
 ic_omp
 ic_metal
 ic.prg
+ic-fast.prg
 ic-tmp.prg
 *.o
 __pycache__/
